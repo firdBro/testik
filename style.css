@@ -1,0 +1,521 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Контейнер */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+header {
+  background: white;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+nav a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111;
+  z-index: 1000;
+  user-select: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.menu-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.banner {
+  background: url('banner.jpg') center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.products {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  justify-content: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.product {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.product img:hover {
+  transform: scale(1.05);
+}
+
+.product h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.product p {
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.product button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.product button:hover {
+  background: #444;
+  transform: scale(1.1);
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+.redirecting {
+  animation: slideOut 0.6s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    max-width: 100%;
+  }
+
+  .product {
+    max-width: none;
+  }
+
+  .banner {
+    height: 220px;
+  }
+
+  .banner-overlay h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+    background: white;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 10px 10px;
+    z-index: 999;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .product h4 {
+    font-size: 16px;
+  }
+
+  .product p {
+    font-size: 14px;
+  }
+
+  .product button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+#o-produkte {
+  background-color: #ebfcfb;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#o-produkte h2 {
+  font-size: 23px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#o-produkte h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#o-produkte p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#pochemu-my {
+  background-color: #f0f8ff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#pochemu-my h2,
+h4 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#pochemu-my p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.feature {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1 0 200px;
+}
+
+.feature img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.site-footer {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 40px 20px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  border-top: 2px dashed #ccc;
+  animation: fadeInUp 1.5s ease;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.footer-logo img:hover {
+  transform: rotate(8deg) scale(1.1);
+}
+
+.footer-logo p {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-links a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #0077ff;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.footer-links a:hover {
+  color: #0077ff;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-socials a {
+  margin: 0 8px;
+  font-size: 20px;
+  color: #888;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.footer-socials a:hover {
+  color: #0077ff;
+  transform: scale(1.2) rotate(5deg);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #999;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.site-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+#kontakty {
+  background-color: #eef9ff;
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeInUp 1.2s ease;
+}
+
+#kontakty h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+#kontakty p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 1 1 250px;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+}
+
+.contact-info i {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.contact-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #0056b3;
+}
+
+.site-footer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #555;
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}

@@ -1,0 +1,414 @@
+/* Сброс и базовые стили */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff; /* белый фон */
+  color: #222;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Контейнер с отступами и центровкой */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Хедер */
+header {
+  background-color: #fff; /* белый фон */
+  color: #222;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  box-shadow: none;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Навигация */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  padding-left: 0;
+}
+
+nav li {}
+
+nav a {
+  color: #444; /* темно-серый цвет для ссылок */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #222; /* темный фон при наведении */
+  color: #fff;
+  outline: none;
+}
+
+/* Основной контент */
+main {
+  flex-grow: 1;
+  padding: 40px 0;
+  background-color: #fff;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* Заголовок раздела */
+.cart h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #222;
+}
+
+/* Секция корзины */
+#cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Один товар в корзине */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Название товара слева */
+.cart-item .item-name {
+  flex: 1;
+  text-align: left;
+  margin-right: 24px; /* Отступ между названием и кнопками */
+}
+
+/* Контролы справа (кол-во и цена) */
+.cart-item .item-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+  justify-content: flex-end;
+}
+
+/* Кнопки управления количеством */
+button.qty-btn {
+  background-color: #222; /* темный почти черный фон */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 38px;
+  height: 38px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.1s ease;
+  user-select: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+button.qty-btn:hover {
+  background-color: #555; /* чуть светлее при наведении */
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+}
+
+button.qty-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Отображение количества */
+.qty-display {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+/* Цена товара */
+.item-price {
+  font-weight: 700;
+  font-size: 18px;
+  color: #111; /* темный текст */
+  min-width: 90px;
+  text-align: right;
+  user-select: none;
+}
+
+/* Итог */
+.total {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: right;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+/* Кнопка оформления заказа */
+#checkout {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  background-color: #111; /* очень темный фон */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 14px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+}
+
+#checkout:hover {
+  background-color: #444;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+}
+
+#checkout:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+/* Футер */
+footer {
+  background-color: #fff;
+  color: #555;
+  padding: 16px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  border-top: 1px solid #ddd;
+  margin-top: auto;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item .item-controls {
+    min-width: auto;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  #checkout {
+    max-width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+.footer-logo img:hover {
+  transform: rotate(8deg) scale(1.1);
+}
+
+.footer-logo p {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-links a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.footer-links a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #0077ff;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+.footer-links a:hover {
+  color: #0077ff;
+}
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-socials a {
+  margin: 0 8px;
+  font-size: 20px;
+  color: #888;
+  transition: transform 0.3s, color 0.3s;
+}
+.footer-socials a:hover {
+  color: #0077ff;
+  transform: scale(1.2) rotate(5deg);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #999;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Логотип в шапке */
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.site-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+/* --- ДОБАВЛЕННЫЕ СТИЛИ ДЛЯ ФОРМЫ КОНТАКТОВ --- */
+
+.contact-form {
+  background: #fff;
+  padding: 24px 20px;
+  margin-top: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: #222;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.contact-form h3 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: #111;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"] {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form input[type="email"]:focus {
+  border-color: #0077ff;
+  outline: none;
+}
+
+.contact-form .submit-btn {
+  display: block;
+  margin: 28px auto 0 auto;
+  padding: 14px 30px;
+  background-color: #111;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+.contact-form .submit-btn:hover {
+  background-color: #444;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+}
+
+.contact-form .submit-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
