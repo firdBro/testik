@@ -1,0 +1,416 @@
+/* tovar.css - светлый стиль, как на основном сайте */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Контейнер продукта */
+.product-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px;
+  padding-top: 70px; /* Отступ сверху, чтобы кнопка назад не налезала */
+  position: relative;
+}
+
+/* Заголовок товара */
+#product-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #111;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 8px;
+}
+
+/* Описание товара */
+#product-description {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 25px 0 40px; /* Отступ сверху и снизу */
+}
+
+/* Цена */
+#product-price {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #007bff;
+  margin-bottom: 30px;
+}
+
+/* Галерея миниатюр */
+#product-gallery {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+/* Исправлено: добавил flex-shrink, чтобы миниатюры не сжимались слишком */
+.gallery-thumb {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.gallery-thumb:hover {
+  border-color: #007bff;
+}
+
+/* Модальное окно галереи */
+#modal-gallery {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#modal-gallery img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+/* Кнопки управления модалкой */
+#modal-close, #prev-btn, #next-btn {
+  position: fixed;
+  background: #f9f9f9;
+  color: #007bff;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+#modal-close:hover, #prev-btn:hover, #next-btn:hover {
+  background: #007bff;
+  color: white;
+}
+
+#modal-close {
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 0 5px rgba(0,123,255,0.7);
+}
+
+#prev-btn {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 5px rgba(0,123,255,0.7);
+}
+
+#next-btn {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 5px rgba(0,123,255,0.7);
+}
+
+/* Кнопка "Вернуться назад" */
+#back-btn {
+  position: fixed;
+  top: 60px;         /* Опустил вниз */
+  left: 25px;
+  background: #ffffff;
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1100;
+  user-select: none;
+}
+
+#back-btn:hover {
+  background: #007bff;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+  border-color: #0056b3;
+}
+
+#go-to-cart {
+  display: block;
+  margin: 0 auto;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background 0.3s ease;
+  max-width: 200px;
+  text-align: center;
+}
+
+#go-to-cart:hover {
+  background: #444;
+}
+
+#add-to-cart {
+  display: block;
+  margin: 20px auto 0 auto;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  max-width: 220px;
+  text-align: center;
+  user-select: none;
+  box-shadow: 0 4px 12px rgba(0,123,255,0.4);
+}
+
+#add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  /* Галерея */
+  #product-gallery {
+    justify-content: center;
+    gap: 10px;
+  }
+  .gallery-thumb {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+  }
+  /* Заголовок */
+  #product-title {
+    font-size: 1.6rem;
+  }
+  /* Описание */
+  #product-description {
+    margin: 20px 0 30px;
+    font-size: 1rem;
+  }
+  /* Кнопка "Вернуться назад" — фиксируем сверху слева */
+  #back-btn {
+    top: 0;         /* прижать к самому верху */
+    left: 0;        /* слева */
+    width: 100px;   /* фиксированная ширина */
+    padding: 10px;
+    border-radius: 0 0 8px 0; /* скругление снизу справа */
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(0,123,255,0.3);
+  }
+}
+#go-to-cart {
+  margin-top: 20px; /* Добавляем отступ сверху, чтобы не слипалась с add-to-cart */
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+.footer-logo img:hover {
+  transform: rotate(8deg) scale(1.1);
+}
+
+.footer-logo p {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-links a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.footer-links a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #0077ff;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+.footer-links a:hover {
+  color: #0077ff;
+}
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-socials a {
+  margin: 0 8px;
+  font-size: 20px;
+  color: #888;
+  transition: transform 0.3s, color 0.3s;
+}
+.footer-socials a:hover {
+  color: #0077ff;
+  transform: scale(1.2) rotate(5deg);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #999;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Логотип в шапке */
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.site-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.contact-form {
+  background: #fff;
+  padding: 24px 20px;
+  margin-top: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: #222;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.contact-form h3 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: #111;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"] {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form input[type="email"]:focus {
+  border-color: #0077ff;
+  outline: none;
+}
+
+.contact-form .submit-btn {
+  display: block;
+  margin: 28px auto 0 auto;
+  padding: 14px 30px;
+  background-color: #111;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+.contact-form .submit-btn:hover {
+  background-color: #444;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+}
+
+.contact-form .submit-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}

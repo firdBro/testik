@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Описание товара</title>
+  <link rel="stylesheet" href="tovar.css" />
+</head>
+<body>
+  <button id="back-btn" onclick="history.back()">← Вернуться назад</button>
+
+  <main>
+    <div class="product-container">
+      <h1 id="product-title">Название товара</h1>
+
+      <section id="product-details">
+        <p id="product-description">
+          Здесь будет подробное описание товара. Его характеристики, преимущества и другая полезная информация.
+        </p>
+        <p id="product-price">Цена: 1999 ₽</p>
+
+        <div id="product-gallery">
+          <img src="images/product1.jpg" alt="Фото товара 1" class="gallery-thumb" />
+          <img src="images/product2.jpg" alt="Фото товара 2" class="gallery-thumb" />
+          <img src="images/product3.jpg" alt="Фото товара 3" class="gallery-thumb" />
+        </div>
+
+        <button id="add-to-cart">Добавить в корзину</button>
+
+        <!-- Кнопка Перейти в корзину -->
+        <button id="go-to-cart" onclick="location.href='korzina.html'">Перейти в корзину</button>
+      </section>
+    </div>
+  </main>
+
+  <div id="modal-gallery" class="modal">
+    <button id="modal-close" aria-label="Закрыть">&times;</button>
+    <img id="modal-image" src="" alt="Просмотр изображения" />
+    <button id="prev-btn" aria-label="Предыдущее">&#10094;</button>
+    <button id="next-btn" aria-label="Следующее">&#10095;</button>
+  </div>
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="path/logo.png" alt="logo.png" />
+      <p>Чистота. Удобство. Надежность.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html#halaty">Товары</a>
+      <a href="index.html#o-produkte">О нас</a>
+      <a href="index.html#kontakty">Контакты</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+
+    <div class="footer-socials">
+      <a href="#"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Каспер™ — комбинизоны и халаты с комфортом 🧼</p>
+  </div>
+</footer>
+
+  <script src="tovar.js"></script>
+</body>
+</html>

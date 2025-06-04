@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Корзина</title>
+  <link rel="stylesheet" href="korzina.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <h1 class="site-title">Корзина</h1>
+      <nav class="main-nav" aria-label="Главное меню">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="cart container" aria-label="Корзина товаров">
+      <h2 class="section-title">Ваши товары</h2>
+      <div id="min-warning" class="min-warning" style="display:none;">
+      Минимальное количество в заказе: 10
+      </div>
+
+      <div id="cart-items" class="cart-items"></div>
+      <p class="total">
+        Итого: <span id="total-price">0 ₽</span>
+      </p>
+      <button id="checkout" class="checkout-btn" type="button">Оформить заказ</button>
+
+      <!-- Форма контактов (по умолчанию скрыта) -->
+      <form id="contact-form" class="contact-form" style="display:none;" novalidate>
+        <h3>Контактная информация</h3>
+        <label>
+          Имя:<br />
+          <input type="text" name="firstName" required />
+        </label><br />
+        <label>
+          Фамилия:<br />
+          <input type="text" name="lastName" required />
+        </label><br />
+        <label>
+          Номер телефона:<br />
+          <input type="tel" name="phone" required pattern="[\+]?[0-9\s\-]{7,15}" />
+        </label><br />
+        <label>
+          Почта (не обязательно):<br />
+          <input type="email" name="email" />
+        </label><br />
+        <button type="submit" class="submit-btn">Отправить заказ</button>
+      </form>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="path/logo.png" alt="logo.png" />
+      <p>Чистота. Удобство. Надежность.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html#halaty">Товары</a>
+      <a href="index.html#o-produkte">О нас</a>
+      <a href="index.html#kontakty">Контакты</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+
+    <div class="footer-socials">
+      <a href="#"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Каспер™ — комбинизоны и халаты с комфортом 🧼</p>
+  </div>
+</footer>
+
+  <script src="korzina.js"></script>
+</body>
+</html>
